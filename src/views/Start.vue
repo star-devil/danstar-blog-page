@@ -1,37 +1,86 @@
 <!--
  * @Author: wangqiaoling
  * @Date: 2024-03-18 21:12:38
- * @LastEditTime: 2024-03-18 22:10:39
+ * @LastEditTime: 2024-03-19 22:30:43
  * @LastEditors: wangqiaoling
  * @Description: 开始页面
 -->
 <script setup lang="ts">
-import { DocumentText as BookIcon } from "@vicons/ionicons5";
-const value = ref("collect");
+import { renderIcon } from "@utils/renderIcon";
+import {
+  DocumentText as BookIcon,
+  ChevronDown,
+  DocumentTextOutline,
+  OpenOutline,
+  ReaderOutline,
+  RemoveCircleOutline,
+  ShapesOutline,
+  StarOutline,
+} from "@vicons/ionicons5";
+
 const options = [
   {
     label: "收藏",
     value: "collect",
+    icon: renderIcon(StarOutline),
   },
   {
     label: "移除记录",
     value: "remove",
+    icon: renderIcon(RemoveCircleOutline),
   },
   {
     label: "用浏览器打开",
     value: "openBlank",
+    icon: renderIcon(OpenOutline),
   },
 ];
+
+const addDocOptions = [
+  {
+    label: "新建文档",
+    key: "document",
+    icon: renderIcon(DocumentTextOutline),
+  },
+  {
+    label: "新建表格",
+    key: "excel",
+    icon: renderIcon(ReaderOutline),
+  },
+  {
+    label: "新建画板",
+    key: "draw",
+    icon: renderIcon(ShapesOutline),
+  },
+];
+function handleSelect(key: string | number) {
+  console.log(key);
+}
 </script>
 
 <template>
   <div class="start-handle-content mb-5">
     <n-h2>开始</n-h2>
     <n-flex justify="space-between">
-      <n-card title="新建文档" size="small" hoverable>
-        文档、表格、画板、数据表
-      </n-card>
-      <n-card title="新建知识库" size="small" hoverable>
+      <n-dropdown
+        trigger="hover"
+        :options="addDocOptions"
+        placement="bottom-start"
+        size="large"
+        @select="handleSelect"
+        class="w-40"
+      >
+        <n-card title="📝 新建文档" size="small" hoverable>
+          文档、表格、画板、数据表
+          <template #header-extra>
+            <n-icon size="14">
+              <ChevronDown />
+            </n-icon>
+          </template>
+        </n-card>
+      </n-dropdown>
+
+      <n-card title="📚 新建知识库" size="small" hoverable>
         使用知识库整理知识
       </n-card>
     </n-flex>
@@ -58,13 +107,13 @@ const options = [
                 <n-text>2024-03-18</n-text>
               </n-gi>
               <n-gi :span="3" align="right">
-                <n-popselect
-                  v-model:value="value"
+                <n-dropdown
                   :options="options"
                   trigger="click"
+                  placement="bottom-start"
                 >
                   <n-text class="more-action" quaternary> ... </n-text>
-                </n-popselect>
+                </n-dropdown>
               </n-gi>
             </n-grid>
           </n-thing>
@@ -90,13 +139,13 @@ const options = [
                 <n-text>2024-03-18</n-text>
               </n-gi>
               <n-gi :span="3" align="right">
-                <n-popselect
-                  v-model:value="value"
+                <n-dropdown
                   :options="options"
                   trigger="click"
+                  placement="bottom-start"
                 >
-                  <n-text class="more-action" quaternary> ... </n-text>
-                </n-popselect>
+                  <n-text quaternary> ... </n-text>
+                </n-dropdown>
               </n-gi>
             </n-grid>
           </n-thing>
