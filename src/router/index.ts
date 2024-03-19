@@ -1,7 +1,7 @@
 /*
  * @Author: wangqiaoling
  * @Date: 2023-11-13 10:45:50
- * @LastEditTime: 2023-11-13 11:15:42
+ * @LastEditTime: 2024-03-18 21:28:27
  * @LastEditors: wangqiaoling
  * @Description: 简单路由配置
  */
@@ -16,6 +16,18 @@ const routes = [
     path: "/home",
     name: "Home",
     component: async () => await import("../views/HomeView.vue"),
+    children: [
+      {
+        path: "/home/collect",
+        name: "Collect",
+        component: async () => await import("../views/Collect.vue"),
+      },
+      {
+        path: "/home/start",
+        name: "Start",
+        component: async () => await import("../views/Start.vue"),
+      },
+    ],
   },
   // {
   // 配置404页面

@@ -1,7 +1,7 @@
 <!--
  * @Author: wangqiaoling
  * @Date: 2023-11-09 10:13:48
- * @LastEditTime: 2023-11-13 11:13:57
+ * @LastEditTime: 2024-03-12 21:41:17
  * @LastEditors: wangqiaoling
  * @Description: 
 -->
@@ -9,6 +9,8 @@
 
 <template>
   <div>
-    <router-view />
+    <n-message-provider>
+      <router-view />
+    </n-message-provider>
   </div>
 </template>

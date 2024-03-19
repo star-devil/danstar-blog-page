@@ -4,7 +4,7 @@
   line-height: 1.5;
   color: rgb(255 255 255 / 87%);
   color-scheme: light dark;
-  background-color: #242424;
+  background-color: #fff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -37,4 +37,15 @@
 :hover::-webkit-scrollbar-thumb {
   display: block;
   background: hsl(0deg 0% 53% / 40%);
+}
+
+/** menu */
+.n-menu .n-menu-item-content {
+  // padding-left: 10px !important;
+  // padding-right: 10px !important;
+  
+  &::before {
+    right: 0;
+    left: 0;
+  }
 }
