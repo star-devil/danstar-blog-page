@@ -1,7 +1,7 @@
 /*
  * @Author: wangqiaoling
  * @Date: 2023-11-13 10:45:50
- * @LastEditTime: 2024-03-18 21:28:27
+ * @LastEditTime: 2024-03-20 20:50:46
  * @LastEditors: wangqiaoling
  * @Description: 简单路由配置
  */
@@ -20,12 +20,12 @@ const routes = [
       {
         path: "/home/collect",
         name: "Collect",
-        component: async () => await import("../views/Collect.vue"),
+        component: async () => await import("../views/collect/Index.vue"),
       },
       {
         path: "/home/start",
         name: "Start",
-        component: async () => await import("../views/Start.vue"),
+        component: async () => await import("../views/start/Index.vue"),
       },
     ],
   },
