@@ -1,7 +1,7 @@
 /*
  * @Author: wangqiaoling
  * @Date: 2023-11-10 13:11:32
- * @LastEditTime: 2024-03-20 22:41:52
+ * @LastEditTime: 2024-03-20 23:01:27
  * @LastEditors: wangqiaoling
  * @Description: 提供一些配置方法
  */
@@ -18,7 +18,8 @@ export const getAssetsFile = (url: string) => {
 export function formatTime(inputTime: string): void | string {
   const inputDate = new Date(inputTime);
   const currentTime = new Date();
-  const diffTime = (currentTime.getTime() - inputDate.getTime()) / (1000 * 60); // 计算时间差（分钟）
+  // 计算时间差（分钟）
+  const diffTime = (currentTime.getTime() - inputDate.getTime()) / (1000 * 60);
   const isCurrentYear = inputDate.getFullYear() === currentTime.getFullYear();
 
   const time = inputDate.toLocaleTimeString("zh-CN", {
